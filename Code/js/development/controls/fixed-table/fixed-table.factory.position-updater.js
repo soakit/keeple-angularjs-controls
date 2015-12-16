@@ -1,6 +1,6 @@
 ﻿angular.module('keeple.controls.fixed-table').factory('fixed-table.factory.position-updater', [
-    'table-monitor.service',
-    function (tableMonitorService) {
+    'table-monitor.service', '$rootScope',
+    function (tableMonitorService, $rootScope) {
 
         function FixedTablePositionUpdaterService(helperService) {
             /// <param name="helperService" type="Object"></param>
@@ -103,10 +103,12 @@
             });
 
             function processInitialTableCells() {
-                addedHeaderRowListToProcess = table.children('thead').children('tr').toArray();
-                bodyRowListToProcess = table.children('tbody').children('tr').toArray();
+                $rootScope.$on('tableRendered', function(){
+                    addedHeaderRowListToProcess = table.children('thead').children('tr').toArray();
+                    bodyRowListToProcess = table.children('tbody').children('tr').toArray();
 
-                processChangedRowList();
+                    processChangedRowList();
+                });
             }
 
             function processChangedRowList() {

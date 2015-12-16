@@ -12,6 +12,15 @@
                 var positionX = calculatePositionX();
                 var positionY = calculatePositionY();
 
+                //修复无限滚动
+                var tableHeight = table.height();
+                if(positionY >= tableHeight){
+                    return {
+                        X: positionX,
+                        Y: tableHeight
+                    }
+                };
+
                 return {
                     X: positionX,
                     Y: positionY

@@ -78,19 +78,19 @@
 };</pre>
                 </div>
             </div>
-            <div data-fixed-table-parent="" style="width: 600px; height: 400px; overflow: auto;">
+            <div data-fixed-table-parent="" style="width: 100%; height: 400px; overflow: auto;">
                 <div data-fixed-table="" data-options="options">
                     <table class="table table-bordered">
                         <thead>
                             <tr>
-                                <th>ID</th>
+                                <!-- <th>ID</th> -->
                                 <th data-ng-repeat="col in columns">{{col}}</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr data-ng-repeat="row in rows" data-ng-include="'teste.html'">
-                                <!--<td>{{row.id}}</td>
-                                <th data-ng-repeat="col in columns">{{col}}</th>-->
+                            <tr data-ng-repeat="row in rows" ><!-- data-ng-include="'teste.html'" -->
+                                <!-- <td>{{row.id}}</td> -->
+                                <th data-ng-repeat="col in columns">{{col}}</th>
                             </tr>
                         </tbody>
                     </table>

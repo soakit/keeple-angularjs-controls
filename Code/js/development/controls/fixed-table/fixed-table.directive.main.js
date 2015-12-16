@@ -45,6 +45,7 @@
 
                     table = wrapper.children('table');
 
+                    //由于原作者的自定义的滚动条的js没上传，这里始终无效
                     if (settings.useVirtualScroll) {
                         rangeY = parseRangeExpression(attrs.scrollerY);
                         lowerY = rangeY ? scope.$eval(rangeY.lower) : null;

@@ -9,10 +9,9 @@ angular.module('project', ['keeple.controls.fixed-table']).controller('project.c
             $scope.columns = [];
             $scope.rows = [];
 
-            $scope.fixedColumnsCount = 2;
+            $scope.fixedColumnsCount = 1;
             $scope.options = {
-                fixedColumns: 2,
-                useCustomScroll: true
+                fixedColumns: 1
             };
 
             for (var i = 0; i < $scope.columnsCount; i++) {
@@ -58,5 +57,10 @@ angular.module('project', ['keeple.controls.fixed-table']).controller('project.c
             });
 
             $scope.$templateCache = $templateCache;
+
+            setTimeout(function(){
+                $rootScope.$emit('tableRendered');
+            }, 0);
+
         }
     ]);
