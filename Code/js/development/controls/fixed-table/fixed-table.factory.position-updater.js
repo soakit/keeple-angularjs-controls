@@ -142,6 +142,11 @@
                             }
                         }
                     });
+
+                    /*var memoryCellsFixedColumn = Array.prototype.slice.call(memoryElements.headerCellsFixedColumn);;
+                    while(memoryCellsFixedColumn.length > fixedColumnsCount){
+                        memoryCellsFixedColumn.pop();
+                    }*/
                 });
 
                 addedHeaderRowListToProcess = [];
@@ -216,10 +221,20 @@
 
             function updateHeaderCellPositions(positionX, positionY) {
                 if (helperService.getSettings().fixedColumns > 0) {
-                    memoryElements.headerCellsFixedColumn.css({
+                    /*memoryElements.headerCellsFixedColumn.css({
                         left: positionX,
                         top: positionY
-                    });
+                    });*/
+                    var memoryCellsFixedColumn = memoryElements.headerCellsFixedColumn;
+                    for(var i=0, len=memoryCellsFixedColumn.length; i<len; i++){
+                        var tempCell = memoryCellsFixedColumn[i];
+                        tempCell.style.top = positionY + "px";
+                        if(tempCell.className && tempCell.className.indexOf("fixed-header") > -1){
+                            tempCell.style.left = 0;
+                        }else{
+                            tempCell.style.left = positionX + "px";
+                        }
+                    }
                 }
                 memoryElements.headerCells.css({ top: positionY });
             }
